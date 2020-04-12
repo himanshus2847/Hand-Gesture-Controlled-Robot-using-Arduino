@@ -1,9 +1,10 @@
 #include <VirtualWire.h>
+
 #define m1 2
 #define m2 3
 #define m3 4
 #define m4 5
-#define en 6
+
 void setup()
 {
     vw_set_rx_pin(11);
@@ -12,7 +13,6 @@ void setup()
     pinMode(m2, OUTPUT);
     pinMode(m3, OUTPUT);
     pinMode(m4, OUTPUT);
-    pinMode(en, OUTPUT);
     vw_rx_start();
     Serial.begin(9600);
 }
@@ -26,7 +26,6 @@ void loop()
     {
       if(buf[0]=='f')
       {  
-       analogWrite(en, 235);
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
        digitalWrite(m3,HIGH);
@@ -35,7 +34,6 @@ void loop()
       }  
       else if(buf[0]=='b')
       {
-       analogWrite(en, 235);
        digitalWrite(m1,LOW);
        digitalWrite(m2,HIGH);
        digitalWrite(m3,LOW);
@@ -44,7 +42,6 @@ void loop()
       }
       else if(buf[0]=='r')
       {
-       analogWrite(en, 235);
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
        digitalWrite(m3,LOW);
@@ -53,7 +50,6 @@ void loop()
       }
       else if(buf[0]=='l')
       {
-       analogWrite(en, 235);
        digitalWrite(m1,LOW);
        digitalWrite(m2,LOW);
        digitalWrite(m3,HIGH);
